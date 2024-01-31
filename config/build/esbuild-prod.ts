@@ -1,0 +1,15 @@
+import ESBuild from "esbuild";
+import config from "./esbuild-config";
+
+// ***WITHOUT auto re-build (only for PROD mode)***
+ESBuild.build(config).catch((err) => console.log("[Error]: ", err));
+
+// ***WITH auto re-build(only for DEV mode)***
+// const PORT = process.env.PORT || 3000;
+//
+// ESBuild.context(config).then((ctx) => {
+//   ctx
+//     .serve({ servedir: config.outdir, port: PORT })
+//     .then(({ host, port }) => console.log(`Server started on ${host}${port}`))
+//     .catch((err) => console.log("[Error]: ", err));
+// });
